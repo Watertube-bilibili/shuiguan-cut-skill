@@ -101,6 +101,8 @@ node "<skill-dir>/scripts/shuiguan-cut.cjs" edit-render --repo "<repo-dir>" --re
 
 运行环境检查已在 FreeCut 0.6.0 上通过。完整应用的 Windows / Mac 两架构 CI 包含真实 Skill `demo` 导出，见 [FreeCut 0.6.0 构建记录](https://github.com/Watertube-bilibili/freecut-desktop/actions/runs/37202629502)。本包另校验 Skill 格式、脚本语法、打包文件白名单与下载后的 SHA-256；这些检查不保证任意素材或复杂工程都能成功。
 
+**已知产品边界（FreeCut 0.6.0）：** `report.json.passed: true` 只证实脚本操作、工程/输出结构、尺寸、时长与完整解码等检查通过，不证明每一帧画面正确。独立逐帧对照在一个 24 fps 拼接样例的部分循环小数切点发现单帧黑场，来自产品原生导出路径的时间边界处理；并非所有素材或切点都复现。此类切点应额外核查切换前后画面，不能仅靠解码成功验收。当前 Skill 发布包没有修复应用导出器；这条说明仅补充验证范围，不代表产品问题已修复。已发布 ZIP 与 `v0.6.0` 标签保持原样，最新边界说明以本 README 和 Release 正文为准。
+
 可用原创测试素材自行完成 5 秒实际应用导出：
 
 ```sh

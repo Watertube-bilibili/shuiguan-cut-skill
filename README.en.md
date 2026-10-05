@@ -101,6 +101,8 @@ The project references original media paths; it is not a self-contained media ar
 
 The environment check passed against FreeCut 0.6.0. The app's Windows and both Mac architecture CI runs include the real Skill `demo` export; see the [FreeCut 0.6.0 build](https://github.com/Watertube-bilibili/freecut-desktop/actions/runs/37202629502). This package additionally checks Skill structure, script syntax, an explicit packaging allowlist and the downloaded SHA-256. These checks do not guarantee success for every media format or complex project.
 
+**Known product limitation (FreeCut 0.6.0):** `report.json.passed: true` confirms script operations, project/output structure, dimensions, duration and full decoding checks; it does not prove that every frame is visually correct. Independent frame-by-frame comparison of one 24 fps concatenation example found single black frames at some cut times with repeating decimal representations, caused by timing-boundary handling in the app's native export path. This was not observed at every cut and is not a claim about all media. Inspect frames immediately around such cuts rather than accepting decode success alone. This Skill release does not fix the app exporter, and this documentation update does not claim the product issue is resolved. The published ZIP and `v0.6.0` tag remain unchanged; consult this README and the Release body for the latest limitations.
+
 Run a five-second end-to-end example using generated original test media:
 
 ```sh
